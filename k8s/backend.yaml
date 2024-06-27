@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: springboot-backend
-          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_2783b6a45583
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_17812674293c
           ports:
             - containerPort: 8080
           env:
