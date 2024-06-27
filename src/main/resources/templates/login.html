@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Sign Up</title>
+</head>
+<body>
+<h2>User Sign Up</h2>
+<form action="/sign-up" method="POST">
+    <div>
+        <label for="userid">아이디:</label><br>
+        <input type="text" id="userid" name="userid" required>
+        <span class="error" id="userid-error"></span>
+    </div>
+    <div>
+        <label for="username">이름:</label><br>
+        <input type="text" id="username" name="username" pattern="^[a-zA-Z가-힣]*$" required>
+        <span class="error" id="username-error"></span>
+    </div>
+    <div>
+        <label for="nickname">닉네임:</label><br>
+        <input type="text" id="nickname" name="nickname" required>
+        <span class="error" id="nickname-error"></span>
+    </div>
+    <div>
+        <label for="password">비밀번호:</label><br>
+        <input type="password" id="password" name="password" required>
+        <span class="error" id="password-error"></span>
+    </div>
+    <div>
+        <label for="checkPassword">비밀번호 확인:</label><br>
+        <input type="password" id="checkPassword" name="checkPassword" required>
+        <span class="error" id="checkPassword-error"></span>
+    </div>
+    <div>
+        <label for="email">이메일:</label><br>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="email-error"></span>
+    </div>
+    <br>
+    <div>
+        <button type="submit">회원 가입</button>
+    </div>
+</form>
+
+<script>
+    // Optional: JavaScript validation for fields based on backend rules
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (event) {
+        const userid = document.getElementById('userid');
+        const username = document.getElementById('username');
+        const nickname = document.getElementById('nickname');
+        const password = document.getElementById('password');
+        const checkPassword = document.getElementById('checkPassword');
+        const email = document.getElementById('email');
+
+        // Example: Basic validation logic, you might need more complex validation based on requirements
+        if (!userid.validity.valid) {
+            document.getElementById('userid-error').textContent = '아이디를 입력해주세요.';
+            event.preventDefault();
+        }
+
+        if (!username.validity.valid) {
+            document.getElementById('username-error').textContent = '이름은 영문자 또는 한글만 입력 가능합니다.';
+            event.preventDefault();
+        }
+
+        if (!nickname.validity.valid) {
+            document.getElementById('nickname-error').textContent = '닉네임을 입력해주세요.';
+            event.preventDefault();
+        }
+
+        if (!password.validity.valid) {
+            document.getElementById('password-error').textContent = '비밀번호를 입력해주세요.';
+            event.preventDefault();
+        }
+
+        if (!checkPassword.validity.valid) {
+            document.getElementById('checkPassword-error').textContent = '확인 비밀번호를 입력해주세요.';
+            event.preventDefault();
+        }
+
+        if (!email.validity.valid) {
+            document.getElementById('email-error').textContent = '올바른 이메일 형식이 아닙니다.';
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

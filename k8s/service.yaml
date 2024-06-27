@@ -1,0 +1,27 @@
+# springboot-backend 서비스 설정
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-backend
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: springboot-backend
+
+---
+# mysql Headless Service 설정
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  type: NodePort
+  ports:
+    - port: 3306
+      targetPort: 3306
+      nodePort: 30000
+
+  selector:
+    app: mysql
